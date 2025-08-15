@@ -4,6 +4,13 @@ import { PerformanceDigital } from "@/components/dashboard/PerformanceDigital";
 import { RadarMonitoramento } from "@/components/dashboard/RadarMonitoramento";
 import { MapeamentoConcorrentes } from "@/components/dashboard/MapeamentoConcorrentes";
 import { AnalisePostsSentimentos } from "@/components/dashboard/AnalisePostsSentimentos";
+import { EstrategiaDigital } from "@/components/dashboard/EstrategiaDigital";
+import { InsightsTaticos } from "@/components/dashboard/InsightsTaticos";
+import { ProjecaoCenarios } from "@/components/dashboard/ProjecaoCenarios";
+import { PautasNarrativas } from "@/components/dashboard/PautasNarrativas";
+import { TermometroPopular } from "@/components/dashboard/TermometroPopular";
+import { ObservatorioSocial } from "@/components/dashboard/ObservatorioSocial";
+import { BaseEleitoral } from "@/components/dashboard/BaseEleitoral";
 
 export default function Dashboard() {
   const [activeSection, setActiveSection] = useState("dashboard");
@@ -19,19 +26,19 @@ export default function Dashboard() {
       case "analise":
         return <AnalisePostsSentimentos />;
       case "estrategia":
-        return <div className="p-8 text-center"><h2 className="text-2xl font-bold text-primary">Estratégia Digital</h2><p className="text-muted-foreground mt-2">Em desenvolvimento...</p></div>;
+        return <EstrategiaDigital />;
       case "insights":
-        return <div className="p-8 text-center"><h2 className="text-2xl font-bold text-primary">Insights Táticos</h2><p className="text-muted-foreground mt-2">Em desenvolvimento...</p></div>;
+        return <InsightsTaticos />;
       case "projecao":
-        return <div className="p-8 text-center"><h2 className="text-2xl font-bold text-primary">Projeção de Cenários</h2><p className="text-muted-foreground mt-2">Em desenvolvimento...</p></div>;
+        return <ProjecaoCenarios />;
       case "pautas":
-        return <div className="p-8 text-center"><h2 className="text-2xl font-bold text-primary">Pautas + Narrativas</h2><p className="text-muted-foreground mt-2">Em desenvolvimento...</p></div>;
+        return <PautasNarrativas />;
       case "termometro":
-        return <div className="p-8 text-center"><h2 className="text-2xl font-bold text-primary">Termômetro Popular</h2><p className="text-muted-foreground mt-2">Em desenvolvimento...</p></div>;
+        return <TermometroPopular />;
       case "observatorio":
-        return <div className="p-8 text-center"><h2 className="text-2xl font-bold text-primary">Observatório Social</h2><p className="text-muted-foreground mt-2">Em desenvolvimento...</p></div>;
+        return <ObservatorioSocial />;
       case "base":
-        return <div className="p-8 text-center"><h2 className="text-2xl font-bold text-primary">Base Eleitoral</h2><p className="text-muted-foreground mt-2">Em desenvolvimento...</p></div>;
+        return <BaseEleitoral />;
       case "configuracoes":
         return <div className="p-8 text-center"><h2 className="text-2xl font-bold text-primary">Configurações</h2><p className="text-muted-foreground mt-2">Em desenvolvimento...</p></div>;
       default:
