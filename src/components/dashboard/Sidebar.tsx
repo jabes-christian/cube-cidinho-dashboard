@@ -10,13 +10,19 @@ import {
   Eye,
   Zap,
   Target,
-  Globe
+  Globe,
+  LogOut,
+  User,
+  Shield
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface SidebarProps {
   activeSection: string;
   onSectionChange: (section: string) => void;
+  user: any;
+  onLogout: () => void;
+  isAdmin: boolean;
 }
 
 const menuItems = [
@@ -33,7 +39,7 @@ const menuItems = [
   { id: "base", label: "Base Eleitoral", icon: Map },
 ];
 
-export function Sidebar({ activeSection, onSectionChange }: SidebarProps) {
+export function Sidebar({ activeSection, onSectionChange, user, onLogout, isAdmin }: SidebarProps) {
   return (
     <div className="w-80 bg-primary h-screen overflow-y-auto flex flex-col">
       {/* Header */}
@@ -92,15 +98,35 @@ export function Sidebar({ activeSection, onSectionChange }: SidebarProps) {
         })}
       </div>
 
-      {/* Footer */}
+      {/* User Info */}
       <div className="p-4 border-t border-primary-light">
-        <button 
-          onClick={() => onSectionChange("configuracoes")}
-          className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-primary-foreground hover:bg-primary-light/20 transition-colors"
-        >
-          <Settings className="h-5 w-5" />
-          <span className="text-sm">Configurações</span>
-        </button>
+        <div className="flex items-center gap-3 mb-3 p-3 bg-primary-light/20 rounded-lg">
+          <div className="w-8 h-8 bg-primary-foreground/20 rounded-full flex items-center justify-center">
+            {isAdmin ? <Shield className="h-4 w-4 text-primary-foreground" /> : <User className="h-4 w-4 text-primary-foreground" />}
+          </div>
+          <div className="flex-1">
+            <div className="text-primary-foreground text-sm font-medium">{user?.username}</div>
+            <div className="text-primary-light text-xs capitalize">{user?.role}</div>
+          </div>
+        </div>
+        
+        <div className="space-y-2">
+          <button 
+            onClick={() => onSectionChange("configuracoes")}
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-primary-foreground hover:bg-primary-light/20 transition-colors"
+          >
+            <Settings className="h-5 w-5" />
+            <span className="text-sm">Configurações</span>
+          </button>
+          
+          <button 
+            onClick={onLogout}
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-primary-foreground hover:bg-red-500/20 transition-colors"
+          >
+            <LogOut className="h-5 w-5" />
+            <span className="text-sm">Sair</span>
+          </button>
+        </div>
       </div>
     </div>
   );

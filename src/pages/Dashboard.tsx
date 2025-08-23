@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useAuth } from "@/contexts/AuthContext";
 import { Sidebar } from "@/components/dashboard/Sidebar";
 import { PerformanceDigital } from "@/components/dashboard/PerformanceDigital";
 import { RadarMonitoramento } from "@/components/dashboard/RadarMonitoramento";
@@ -14,6 +15,7 @@ import { BaseEleitoral } from "@/components/dashboard/BaseEleitoral";
 
 export default function Dashboard() {
   const [activeSection, setActiveSection] = useState("dashboard");
+  const { user, logout, isAdmin } = useAuth();
 
   const renderContent = () => {
     switch (activeSection) {
@@ -51,6 +53,9 @@ export default function Dashboard() {
       <Sidebar 
         activeSection={activeSection} 
         onSectionChange={setActiveSection} 
+        user={user}
+        onLogout={logout}
+        isAdmin={isAdmin()}
       />
       <main className="flex-1 overflow-y-auto">
         <div className="p-6">

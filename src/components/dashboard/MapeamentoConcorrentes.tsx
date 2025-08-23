@@ -3,6 +3,10 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { TrendingUp, TrendingDown, Users, Target } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
+import { useEditableData } from "@/hooks/useEditableData";
+import { EditButtons } from "@/components/ui/EditButtons";
+import { EditableField } from "@/components/ui/EditableField";
 
 const candidatesData = [
   {
@@ -48,40 +52,75 @@ const performanceComparativa = [
   { mes: "Jun", cidinho: 67, concorrente1: 52, concorrente2: 38 },
 ];
 
-const swotAnalysis = {
-  forcas: [
-    "Maior engajamento digital entre jovens",
-    "Propostas concretas para desenvolvimento",
-    "Histórica experiência em gestão empresarial",
-    "Crescimento consistente nas pesquisas"
-  ],
-  fraquezas: [
-    "Menor penetração digital nas regiões",
-    "Necessidade de ampliar base aliada",
-    "Recursos financeiros limitados",
-    "Dificuldade de acesso em alguns segmentos"
-  ],
-  oportunidades: [
-    "Potencial crescimento (15% ao mês)",
-    "Crescimento em redes sociais",
-    "Possibilidade com público atual",
-    "Novos apoios regionais"
-  ],
-  ameacas: [
-    "Máquina pública dos concorrentes",
-    "Fake news e desinformação",
-    "Polarização política nacional",
-    "Recursos financeiros limitados"
-  ]
-};
+
 
 export function MapeamentoConcorrentes() {
+  const { isAdmin } = useAuth();
+  const { data, isEditing, setIsEditing, updateField, saveData, cancelEdit, resetData } = useEditableData("mapeamento", {
+    titulo: "MAPEAMENTO CONCORRENTES",
+    descricao: "Análise comparativa de performance digital e posicionamento político",
+    forca1: "Maior engajamento digital entre jovens",
+    forca2: "Propostas concretas para desenvolvimento",
+    forca3: "Histórica experiência em gestão empresarial",
+    forca4: "Crescimento consistente nas pesquisas",
+    fraqueza1: "Menor penetração digital nas regiões",
+    fraqueza2: "Necessidade de ampliar base aliada",
+    fraqueza3: "Recursos financeiros limitados",
+    fraqueza4: "Dificuldade de acesso em alguns segmentos",
+    oportunidade1: "Potencial crescimento (15% ao mês)",
+    oportunidade2: "Crescimento em redes sociais",
+    oportunidade3: "Possibilidade com público atual",
+    oportunidade4: "Novos apoios regionais",
+    ameaca1: "Máquina pública dos concorrentes",
+    ameaca2: "Fake news e desinformação",
+    ameaca3: "Polarização política nacional",
+    ameaca4: "Recursos financeiros limitados"
+  });
+
   return (
     <div className="space-y-6">
       {/* Header */}
       <div className="text-center mb-6">
-        <h2 className="text-2xl font-bold text-primary mb-2">MAPEAMENTO CONCORRENTES</h2>
-        <p className="text-muted-foreground">Análise comparativa de performance digital e posicionamento político</p>
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex-1"></div>
+          <div className="flex-1 text-center">
+            {!isEditing ? (
+              <>
+                <h2 className="text-2xl font-bold text-primary mb-2">{data.titulo}</h2>
+                <p className="text-muted-foreground">{data.descricao}</p>
+              </>
+            ) : (
+              <>
+                <EditableField
+                  label="Título da Seção"
+                  value={data.titulo}
+                  onChange={(value) => updateField("titulo", value)}
+                  isEditing={isEditing}
+                  isAdmin={isAdmin()}
+                  className="text-center"
+                />
+                <EditableField
+                  label="Descrição"
+                  value={data.descricao}
+                  onChange={(value) => updateField("descricao", value)}
+                  isEditing={isEditing}
+                  isAdmin={isAdmin()}
+                  className="text-center"
+                />
+              </>
+            )}
+          </div>
+          <div className="flex-1 flex justify-end">
+            <EditButtons
+              isEditing={isEditing}
+              isAdmin={isAdmin()}
+              onEdit={() => setIsEditing(true)}
+              onSave={saveData}
+              onCancel={cancelEdit}
+              onReset={resetData}
+            />
+          </div>
+        </div>
       </div>
 
       {/* Cards dos Candidatos */}
@@ -156,12 +195,50 @@ export function MapeamentoConcorrentes() {
             <h3 className="text-lg font-semibold text-success">FORÇAS</h3>
           </div>
           <ul className="space-y-2 text-sm">
-            {swotAnalysis.forcas.map((item, index) => (
-              <li key={index} className="flex items-start gap-2">
-                <div className="w-2 h-2 bg-success rounded-full mt-2 flex-shrink-0"></div>
-                <span>{item}</span>
-              </li>
-            ))}
+            <li className="flex items-start gap-2">
+              <div className="w-2 h-2 bg-success rounded-full mt-2 flex-shrink-0"></div>
+              <EditableField
+                label=""
+                value={data.forca1}
+                onChange={(value) => updateField("forca1", value)}
+                isEditing={isEditing}
+                isAdmin={isAdmin()}
+                className="flex-1"
+              />
+            </li>
+            <li className="flex items-start gap-2">
+              <div className="w-2 h-2 bg-success rounded-full mt-2 flex-shrink-0"></div>
+              <EditableField
+                label=""
+                value={data.forca2}
+                onChange={(value) => updateField("forca2", value)}
+                isEditing={isEditing}
+                isAdmin={isAdmin()}
+                className="flex-1"
+              />
+            </li>
+            <li className="flex items-start gap-2">
+              <div className="w-2 h-2 bg-success rounded-full mt-2 flex-shrink-0"></div>
+              <EditableField
+                label=""
+                value={data.forca3}
+                onChange={(value) => updateField("forca3", value)}
+                isEditing={isEditing}
+                isAdmin={isAdmin()}
+                className="flex-1"
+              />
+            </li>
+            <li className="flex items-start gap-2">
+              <div className="w-2 h-2 bg-success rounded-full mt-2 flex-shrink-0"></div>
+              <EditableField
+                label=""
+                value={data.forca4}
+                onChange={(value) => updateField("forca4", value)}
+                isEditing={isEditing}
+                isAdmin={isAdmin()}
+                className="flex-1"
+              />
+            </li>
           </ul>
         </Card>
 
@@ -171,12 +248,50 @@ export function MapeamentoConcorrentes() {
             <h3 className="text-lg font-semibold text-warning">FRAQUEZAS</h3>
           </div>
           <ul className="space-y-2 text-sm">
-            {swotAnalysis.fraquezas.map((item, index) => (
-              <li key={index} className="flex items-start gap-2">
-                <div className="w-2 h-2 bg-warning rounded-full mt-2 flex-shrink-0"></div>
-                <span>{item}</span>
-              </li>
-            ))}
+            <li className="flex items-start gap-2">
+              <div className="w-2 h-2 bg-warning rounded-full mt-2 flex-shrink-0"></div>
+              <EditableField
+                label=""
+                value={data.fraqueza1}
+                onChange={(value) => updateField("fraqueza1", value)}
+                isEditing={isEditing}
+                isAdmin={isAdmin()}
+                className="flex-1"
+              />
+            </li>
+            <li className="flex items-start gap-2">
+              <div className="w-2 h-2 bg-warning rounded-full mt-2 flex-shrink-0"></div>
+              <EditableField
+                label=""
+                value={data.fraqueza2}
+                onChange={(value) => updateField("fraqueza2", value)}
+                isEditing={isEditing}
+                isAdmin={isAdmin()}
+                className="flex-1"
+              />
+            </li>
+            <li className="flex items-start gap-2">
+              <div className="w-2 h-2 bg-warning rounded-full mt-2 flex-shrink-0"></div>
+              <EditableField
+                label=""
+                value={data.fraqueza3}
+                onChange={(value) => updateField("fraqueza3", value)}
+                isEditing={isEditing}
+                isAdmin={isAdmin()}
+                className="flex-1"
+              />
+            </li>
+            <li className="flex items-start gap-2">
+              <div className="w-2 h-2 bg-warning rounded-full mt-2 flex-shrink-0"></div>
+              <EditableField
+                label=""
+                value={data.fraqueza4}
+                onChange={(value) => updateField("fraqueza4", value)}
+                isEditing={isEditing}
+                isAdmin={isAdmin()}
+                className="flex-1"
+              />
+            </li>
           </ul>
         </Card>
 
@@ -186,12 +301,50 @@ export function MapeamentoConcorrentes() {
             <h3 className="text-lg font-semibold text-primary">OPORTUNIDADES</h3>
           </div>
           <ul className="space-y-2 text-sm">
-            {swotAnalysis.oportunidades.map((item, index) => (
-              <li key={index} className="flex items-start gap-2">
-                <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                <span>{item}</span>
-              </li>
-            ))}
+            <li className="flex items-start gap-2">
+              <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+              <EditableField
+                label=""
+                value={data.oportunidade1}
+                onChange={(value) => updateField("oportunidade1", value)}
+                isEditing={isEditing}
+                isAdmin={isAdmin()}
+                className="flex-1"
+              />
+            </li>
+            <li className="flex items-start gap-2">
+              <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+              <EditableField
+                label=""
+                value={data.oportunidade2}
+                onChange={(value) => updateField("oportunidade2", value)}
+                isEditing={isEditing}
+                isAdmin={isAdmin()}
+                className="flex-1"
+              />
+            </li>
+            <li className="flex items-start gap-2">
+              <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+              <EditableField
+                label=""
+                value={data.oportunidade3}
+                onChange={(value) => updateField("oportunidade3", value)}
+                isEditing={isEditing}
+                isAdmin={isAdmin()}
+                className="flex-1"
+              />
+            </li>
+            <li className="flex items-start gap-2">
+              <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+              <EditableField
+                label=""
+                value={data.oportunidade4}
+                onChange={(value) => updateField("oportunidade4", value)}
+                isEditing={isEditing}
+                isAdmin={isAdmin()}
+                className="flex-1"
+              />
+            </li>
           </ul>
         </Card>
 
@@ -201,12 +354,50 @@ export function MapeamentoConcorrentes() {
             <h3 className="text-lg font-semibold text-destructive">AMEAÇAS</h3>
           </div>
           <ul className="space-y-2 text-sm">
-            {swotAnalysis.ameacas.map((item, index) => (
-              <li key={index} className="flex items-start gap-2">
-                <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
-                <span>{item}</span>
-              </li>
-            ))}
+            <li className="flex items-start gap-2">
+              <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
+              <EditableField
+                label=""
+                value={data.ameaca1}
+                onChange={(value) => updateField("ameaca1", value)}
+                isEditing={isEditing}
+                isAdmin={isAdmin()}
+                className="flex-1"
+              />
+            </li>
+            <li className="flex items-start gap-2">
+              <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
+              <EditableField
+                label=""
+                value={data.ameaca2}
+                onChange={(value) => updateField("ameaca2", value)}
+                isEditing={isEditing}
+                isAdmin={isAdmin()}
+                className="flex-1"
+              />
+            </li>
+            <li className="flex items-start gap-2">
+              <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
+              <EditableField
+                label=""
+                value={data.ameaca3}
+                onChange={(value) => updateField("ameaca3", value)}
+                isEditing={isEditing}
+                isAdmin={isAdmin()}
+                className="flex-1"
+              />
+            </li>
+            <li className="flex items-start gap-2">
+              <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
+              <EditableField
+                label=""
+                value={data.ameaca4}
+                onChange={(value) => updateField("ameaca4", value)}
+                isEditing={isEditing}
+                isAdmin={isAdmin()}
+                className="flex-1"
+              />
+            </li>
           </ul>
         </Card>
       </div>
