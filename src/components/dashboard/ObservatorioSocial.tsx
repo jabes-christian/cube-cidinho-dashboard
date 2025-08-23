@@ -3,8 +3,18 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 import { Globe, TrendingUp, Users, MessageCircle, Calendar } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
+import { useEditableData } from "@/hooks/useEditableData";
+import { EditButtons } from "@/components/ui/EditButtons";
+import { EditableField } from "@/components/ui/EditableField";
 
 export function ObservatorioSocial() {
+  const { isAdmin } = useAuth();
+  const { data, isEditing, setIsEditing, updateField, saveData, cancelEdit, resetData } = useEditableData("observatorio", {
+    titulo: "Observatório Social",
+    descricao: "Monitoramento dos movimentos sociais, tendências e engajamento digital"
+  });
+
   const dadosEngajamento = [
     { mes: "Jan", seguidores: 12000, interacoes: 8500, alcance: 45000 },
     { mes: "Fev", seguidores: 13500, interacoes: 9200, alcance: 52000 },

@@ -3,8 +3,18 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 import { Users, MapPin, Clock, DollarSign, Target } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
+import { useEditableData } from "@/hooks/useEditableData";
+import { EditButtons } from "@/components/ui/EditButtons";
+import { EditableField } from "@/components/ui/EditableField";
 
 export function BaseEleitoral() {
+  const { isAdmin } = useAuth();
+  const { data, isEditing, setIsEditing, updateField, saveData, cancelEdit, resetData } = useEditableData("base", {
+    titulo: "Base Eleitoral",
+    descricao: "Análise detalhada do público-alvo e segmentação da base eleitoral"
+  });
+
   const analisePublicoAlvo = [
     { faixa: "18-24", porcentagem: 22, cor: "#FF6B35" },
     { faixa: "25-34", porcentagem: 28, cor: "#F7931E" },

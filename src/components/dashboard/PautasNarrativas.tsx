@@ -2,8 +2,22 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { FileText, TrendingUp, AlertCircle, MapPin } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
+import { useEditableData } from "@/hooks/useEditableData";
+import { EditButtons } from "@/components/ui/EditButtons";
+import { EditableField } from "@/components/ui/EditableField";
 
 export function PautasNarrativas() {
+  const { isAdmin } = useAuth();
+  const { data, isEditing, setIsEditing, updateField, saveData, cancelEdit, resetData } = useEditableData("pautas", {
+    titulo: "Pautas e Narrativas",
+    descricao: "Inteligência estratégica baseada na opinião política, sentimentos média e mídia digital em MT",
+    narrativa1: "MT precisa de mais parcerias significativas",
+    narrativa2: "Educação técnica como solução para o futuro",
+    narrativa3: "Recomendação: Manter criação de conteúdo baseado na faceta",
+    narrativa4: "Segurança e prioridade nas periferias"
+  });
+
   const pautasPopulacao = [
     { tema: "Emprego", categoria: "Desenvolvimento", relevancia: 95, sentimento: 85 },
     { tema: "Educação", categoria: "Desenvolvimento", relevancia: 92, sentimento: 67 },
@@ -58,11 +72,37 @@ export function PautasNarrativas() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold text-primary mb-2">Pautas e Narrativas</h1>
-        <p className="text-muted-foreground">
-          Inteligência estratégica baseada na opinião política, sentimentos média e mídia digital em MT
-        </p>
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex-1"></div>
+        <div className="flex-1 text-center">
+          <EditableField
+            label=""
+            value={data.titulo}
+            onChange={(value) => updateField("titulo", value)}
+            isEditing={isEditing}
+            isAdmin={isAdmin()}
+            className="text-center"
+          />
+          <EditableField
+            label=""
+            value={data.descricao}
+            onChange={(value) => updateField("descricao", value)}
+            isEditing={isEditing}
+            isAdmin={isAdmin()}
+            multiline
+            className="text-center"
+          />
+        </div>
+        <div className="flex-1 flex justify-end">
+          <EditButtons
+            isEditing={isEditing}
+            isAdmin={isAdmin()}
+            onEdit={() => setIsEditing(true)}
+            onSave={saveData}
+            onCancel={cancelEdit}
+            onReset={resetData}
+          />
+        </div>
       </div>
 
       {/* Principais Pautas da População MT */}

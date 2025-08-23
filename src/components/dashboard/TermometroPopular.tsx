@@ -2,8 +2,21 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Thermometer, TrendingUp, MessageSquare, Heart, Share2 } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
+import { useEditableData } from "@/hooks/useEditableData";
+import { EditButtons } from "@/components/ui/EditButtons";
+import { EditableField } from "@/components/ui/EditableField";
 
 export function TermometroPopular() {
+  const { isAdmin } = useAuth();
+  const { data, isEditing, setIsEditing, updateField, saveData, cancelEdit, resetData } = useEditableData("termometro", {
+    titulo: "Termômetro Popular",
+    descricao: "Análise em tempo real da percepção popular nas redes sociais no MT",
+    mencao1: "Impressionante proposta científica e suporte para liderança no desenvolvimento da região! Cuidador Santos é uma pessoa que inspira confiança.",
+    mencao2: "Sobre a obra científica trabalho inspirado para liderança no desenvolvimento da região! Cuidador Santos é uma pessoa que inspira confiança.",
+    mencao3: "Cuidador Santos traz perspectivas frescas e inovadoras para o cenário político local. Suas propostas são bem estruturadas."
+  });
+
   const scorePopular = 85;
   const totalMencoes = 3515;
 
@@ -90,11 +103,37 @@ export function TermometroPopular() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold text-primary mb-2">Termômetro Popular</h1>
-        <p className="text-muted-foreground">
-          Análise em tempo real da percepção popular nas redes sociais no MT
-        </p>
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex-1"></div>
+        <div className="flex-1 text-center">
+          <EditableField
+            label=""
+            value={data.titulo}
+            onChange={(value) => updateField("titulo", value)}
+            isEditing={isEditing}
+            isAdmin={isAdmin()}
+            className="text-center"
+          />
+          <EditableField
+            label=""
+            value={data.descricao}
+            onChange={(value) => updateField("descricao", value)}
+            isEditing={isEditing}
+            isAdmin={isAdmin()}
+            multiline
+            className="text-center"
+          />
+        </div>
+        <div className="flex-1 flex justify-end">
+          <EditButtons
+            isEditing={isEditing}
+            isAdmin={isAdmin()}
+            onEdit={() => setIsEditing(true)}
+            onSave={saveData}
+            onCancel={cancelEdit}
+            onReset={resetData}
+          />
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

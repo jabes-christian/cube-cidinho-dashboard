@@ -3,21 +3,25 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar } from "recharts";
 import { CheckCircle, AlertTriangle, TrendingUp, Users, MapPin } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
+import { useEditableData } from "@/hooks/useEditableData";
+import { EditButtons } from "@/components/ui/EditButtons";
+import { EditableField } from "@/components/ui/EditableField";
 
 export function ProjecaoCenarios() {
-  const pontosFortes = [
-    "Forte presença digital e engajamento jovem",
-    "Propostas inovadoras para educação e tecnologia",
-    "Histórico de transparência e liderança",
-    "Apoio consolidado no interior do estado"
-  ];
-
-  const desafios = [
-    "Primeira candidatura ao Governo",
-    "Necessidade de maior base do Estado",
-    "Competição com políticos tradicionais",
-    "Recursos da campanha limitados"
-  ];
+  const { isAdmin } = useAuth();
+  const { data, isEditing, setIsEditing, updateField, saveData, cancelEdit, resetData } = useEditableData("projecao", {
+    titulo: "Projeção de Cenários",
+    descricao: "Análise detalhada da viabilidade e cenários competitivos para a eleição de Governo",
+    ponto1: "Forte presença digital e engajamento jovem",
+    ponto2: "Propostas inovadoras para educação e tecnologia",
+    ponto3: "Histórico de transparência e liderança",
+    ponto4: "Apoio consolidado no interior do estado",
+    desafio1: "Primeira candidatura ao Governo",
+    desafio2: "Necessidade de maior base do Estado",
+    desafio3: "Competição com políticos tradicionais",
+    desafio4: "Recursos da campanha limitados"
+  });
 
   const cenarios = [
     { nome: "Otimista", percentual: 50, cor: "bg-success", descricao: "Cenários atentos aos momentos para aproveitamento" },
@@ -50,11 +54,37 @@ export function ProjecaoCenarios() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold text-primary mb-2">Projeção de Cenários</h1>
-        <p className="text-muted-foreground">
-          Análise detalhada da viabilidade e cenários competitivos para a eleição de Governo
-        </p>
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex-1"></div>
+        <div className="flex-1 text-center">
+          <EditableField
+            label=""
+            value={data.titulo}
+            onChange={(value) => updateField("titulo", value)}
+            isEditing={isEditing}
+            isAdmin={isAdmin()}
+            className="text-center"
+          />
+          <EditableField
+            label=""
+            value={data.descricao}
+            onChange={(value) => updateField("descricao", value)}
+            isEditing={isEditing}
+            isAdmin={isAdmin()}
+            multiline
+            className="text-center"
+          />
+        </div>
+        <div className="flex-1 flex justify-end">
+          <EditButtons
+            isEditing={isEditing}
+            isAdmin={isAdmin()}
+            onEdit={() => setIsEditing(true)}
+            onSave={saveData}
+            onCancel={cancelEdit}
+            onReset={resetData}
+          />
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -74,12 +104,50 @@ export function ProjecaoCenarios() {
                   PONTOS FORTES
                 </h3>
                 <ul className="space-y-2">
-                  {pontosFortes.map((ponto, index) => (
-                    <li key={index} className="text-sm flex items-start gap-2">
-                      <span className="text-success">•</span>
-                      <span>{ponto}</span>
-                    </li>
-                  ))}
+                  <li className="text-sm flex items-start gap-2">
+                    <span className="text-success">•</span>
+                    <EditableField
+                      label=""
+                      value={data.ponto1}
+                      onChange={(value) => updateField("ponto1", value)}
+                      isEditing={isEditing}
+                      isAdmin={isAdmin()}
+                      className="flex-1"
+                    />
+                  </li>
+                  <li className="text-sm flex items-start gap-2">
+                    <span className="text-success">•</span>
+                    <EditableField
+                      label=""
+                      value={data.ponto2}
+                      onChange={(value) => updateField("ponto2", value)}
+                      isEditing={isEditing}
+                      isAdmin={isAdmin()}
+                      className="flex-1"
+                    />
+                  </li>
+                  <li className="text-sm flex items-start gap-2">
+                    <span className="text-success">•</span>
+                    <EditableField
+                      label=""
+                      value={data.ponto3}
+                      onChange={(value) => updateField("ponto3", value)}
+                      isEditing={isEditing}
+                      isAdmin={isAdmin()}
+                      className="flex-1"
+                    />
+                  </li>
+                  <li className="text-sm flex items-start gap-2">
+                    <span className="text-success">•</span>
+                    <EditableField
+                      label=""
+                      value={data.ponto4}
+                      onChange={(value) => updateField("ponto4", value)}
+                      isEditing={isEditing}
+                      isAdmin={isAdmin()}
+                      className="flex-1"
+                    />
+                  </li>
                 </ul>
               </div>
               
@@ -89,12 +157,50 @@ export function ProjecaoCenarios() {
                   DESAFIOS A SEREM SUPERADOS
                 </h3>
                 <ul className="space-y-2">
-                  {desafios.map((desafio, index) => (
-                    <li key={index} className="text-sm flex items-start gap-2">
-                      <span className="text-warning">•</span>
-                      <span>{desafio}</span>
-                    </li>
-                  ))}
+                  <li className="text-sm flex items-start gap-2">
+                    <span className="text-warning">•</span>
+                    <EditableField
+                      label=""
+                      value={data.desafio1}
+                      onChange={(value) => updateField("desafio1", value)}
+                      isEditing={isEditing}
+                      isAdmin={isAdmin()}
+                      className="flex-1"
+                    />
+                  </li>
+                  <li className="text-sm flex items-start gap-2">
+                    <span className="text-warning">•</span>
+                    <EditableField
+                      label=""
+                      value={data.desafio2}
+                      onChange={(value) => updateField("desafio2", value)}
+                      isEditing={isEditing}
+                      isAdmin={isAdmin()}
+                      className="flex-1"
+                    />
+                  </li>
+                  <li className="text-sm flex items-start gap-2">
+                    <span className="text-warning">•</span>
+                    <EditableField
+                      label=""
+                      value={data.desafio3}
+                      onChange={(value) => updateField("desafio3", value)}
+                      isEditing={isEditing}
+                      isAdmin={isAdmin()}
+                      className="flex-1"
+                    />
+                  </li>
+                  <li className="text-sm flex items-start gap-2">
+                    <span className="text-warning">•</span>
+                    <EditableField
+                      label=""
+                      value={data.desafio4}
+                      onChange={(value) => updateField("desafio4", value)}
+                      isEditing={isEditing}
+                      isAdmin={isAdmin()}
+                      className="flex-1"
+                    />
+                  </li>
                 </ul>
               </div>
             </div>
