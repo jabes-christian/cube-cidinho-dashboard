@@ -55,7 +55,7 @@ export default function Dashboard() {
         onSectionChange={setActiveSection} 
         user={user}
         onLogout={logout}
-        isAdmin={isAdmin()}
+        isAdmin={isAdmin}
       />
       <main className="flex-1 overflow-y-auto">
         <div className="p-6">

@@ -96,7 +96,7 @@ export function MapeamentoConcorrentes() {
                   value={data.titulo}
                   onChange={(value) => updateField("titulo", value)}
                   isEditing={isEditing}
-                  isAdmin={isAdmin()}
+                  isAdmin={isAdmin}
                   className="text-center"
                 />
                 <EditableField
@@ -104,7 +104,7 @@ export function MapeamentoConcorrentes() {
                   value={data.descricao}
                   onChange={(value) => updateField("descricao", value)}
                   isEditing={isEditing}
-                  isAdmin={isAdmin()}
+                  isAdmin={isAdmin}
                   className="text-center"
                 />
               </>
@@ -113,7 +113,7 @@ export function MapeamentoConcorrentes() {
           <div className="flex-1 flex justify-end">
             <EditButtons
               isEditing={isEditing}
-              isAdmin={isAdmin()}
+              isAdmin={isAdmin}
               onEdit={() => setIsEditing(true)}
               onSave={saveData}
               onCancel={cancelEdit}
@@ -202,7 +202,7 @@ export function MapeamentoConcorrentes() {
                 value={data.forca1}
                 onChange={(value) => updateField("forca1", value)}
                 isEditing={isEditing}
-                isAdmin={isAdmin()}
+                isAdmin={isAdmin}
                 className="flex-1"
               />
             </li>
@@ -213,7 +213,7 @@ export function MapeamentoConcorrentes() {
                 value={data.forca2}
                 onChange={(value) => updateField("forca2", value)}
                 isEditing={isEditing}
-                isAdmin={isAdmin()}
+                isAdmin={isAdmin}
                 className="flex-1"
               />
             </li>
@@ -224,7 +224,7 @@ export function MapeamentoConcorrentes() {
                 value={data.forca3}
                 onChange={(value) => updateField("forca3", value)}
                 isEditing={isEditing}
-                isAdmin={isAdmin()}
+                isAdmin={isAdmin}
                 className="flex-1"
               />
             </li>
@@ -235,7 +235,7 @@ export function MapeamentoConcorrentes() {
                 value={data.forca4}
                 onChange={(value) => updateField("forca4", value)}
                 isEditing={isEditing}
-                isAdmin={isAdmin()}
+                isAdmin={isAdmin}
                 className="flex-1"
               />
             </li>
@@ -255,7 +255,7 @@ export function MapeamentoConcorrentes() {
                 value={data.fraqueza1}
                 onChange={(value) => updateField("fraqueza1", value)}
                 isEditing={isEditing}
-                isAdmin={isAdmin()}
+                isAdmin={isAdmin}
                 className="flex-1"
               />
             </li>
@@ -266,7 +266,7 @@ export function MapeamentoConcorrentes() {
                 value={data.fraqueza2}
                 onChange={(value) => updateField("fraqueza2", value)}
                 isEditing={isEditing}
-                isAdmin={isAdmin()}
+                isAdmin={isAdmin}
                 className="flex-1"
               />
             </li>
@@ -277,7 +277,7 @@ export function MapeamentoConcorrentes() {
                 value={data.fraqueza3}
                 onChange={(value) => updateField("fraqueza3", value)}
                 isEditing={isEditing}
-                isAdmin={isAdmin()}
+                isAdmin={isAdmin}
                 className="flex-1"
               />
             </li>
@@ -288,7 +288,7 @@ export function MapeamentoConcorrentes() {
                 value={data.fraqueza4}
                 onChange={(value) => updateField("fraqueza4", value)}
                 isEditing={isEditing}
-                isAdmin={isAdmin()}
+                isAdmin={isAdmin}
                 className="flex-1"
               />
             </li>
@@ -308,7 +308,7 @@ export function MapeamentoConcorrentes() {
                 value={data.oportunidade1}
                 onChange={(value) => updateField("oportunidade1", value)}
                 isEditing={isEditing}
-                isAdmin={isAdmin()}
+                isAdmin={isAdmin}
                 className="flex-1"
               />
             </li>
@@ -319,7 +319,7 @@ export function MapeamentoConcorrentes() {
                 value={data.oportunidade2}
                 onChange={(value) => updateField("oportunidade2", value)}
                 isEditing={isEditing}
-                isAdmin={isAdmin()}
+                isAdmin={isAdmin}
                 className="flex-1"
               />
             </li>
@@ -330,7 +330,7 @@ export function MapeamentoConcorrentes() {
                 value={data.oportunidade3}
                 onChange={(value) => updateField("oportunidade3", value)}
                 isEditing={isEditing}
-                isAdmin={isAdmin()}
+                isAdmin={isAdmin}
                 className="flex-1"
               />
             </li>
@@ -341,7 +341,7 @@ export function MapeamentoConcorrentes() {
                 value={data.oportunidade4}
                 onChange={(value) => updateField("oportunidade4", value)}
                 isEditing={isEditing}
-                isAdmin={isAdmin()}
+                isAdmin={isAdmin}
                 className="flex-1"
               />
             </li>
@@ -361,7 +361,7 @@ export function MapeamentoConcorrentes() {
                 value={data.ameaca1}
                 onChange={(value) => updateField("ameaca1", value)}
                 isEditing={isEditing}
-                isAdmin={isAdmin()}
+                isAdmin={isAdmin}
                 className="flex-1"
               />
             </li>
@@ -372,7 +372,7 @@ export function MapeamentoConcorrentes() {
                 value={data.ameaca2}
                 onChange={(value) => updateField("ameaca2", value)}
                 isEditing={isEditing}
-                isAdmin={isAdmin()}
+                isAdmin={isAdmin}
                 className="flex-1"
               />
             </li>
@@ -383,7 +383,7 @@ export function MapeamentoConcorrentes() {
                 value={data.ameaca3}
                 onChange={(value) => updateField("ameaca3", value)}
                 isEditing={isEditing}
-                isAdmin={isAdmin()}
+                isAdmin={isAdmin}
                 className="flex-1"
               />
             </li>
@@ -394,7 +394,7 @@ export function MapeamentoConcorrentes() {
                 value={data.ameaca4}
                 onChange={(value) => updateField("ameaca4", value)}
                 isEditing={isEditing}
-                isAdmin={isAdmin()}
+                isAdmin={isAdmin}
                 className="flex-1"
               />
             </li>

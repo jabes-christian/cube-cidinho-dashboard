@@ -1,34 +1,51 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Lightbulb, TrendingUp, AlertTriangle, Target, ArrowRight } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
+import { useEditableData } from "@/hooks/useEditableData";
+import { EditButtons } from "@/components/ui/EditButtons";
+import { EditableField } from "@/components/ui/EditableField";
 
 export function InsightsTaticos() {
+  const { isAdmin } = useAuth();
+  const { data, isEditing, setIsEditing, updateField, saveData, cancelEdit, resetData } = useEditableData("insights", {
+    titulo: "Insights Táticos",
+    descricao: "Análise estratégica e recomendações baseadas em dados de performance digital",
+    insight1_titulo: "Para consolidar novos candidatos na Gestão Cuidativa",
+    insight1_descricao: "apresente-se com um conteúdo focado em novos ideários, sempre baseado na tradição liberal democrática.",
+    insight2_titulo: "Para atrair mais mulheres em Cuiabá",
+    insight2_descricao: "apresente-se com propostas baseadas em políticas para empreendedorismo e equidade de impostos entre seus principais conteúdos.",
+    insight3_titulo: "Sobre Cuidar de estar priorizado",
+    insight3_descricao: "sobre a pauta presente no Ranking do AmplifikaMT da UE TaM para que conheçam a proposta da candidatura Paulo Soethe.",
+    insight4_titulo: "Cuidar crui um posicionamento urgente sobre a prisão de Bolsonaro",
+    insight4_descricao: ""
+  });
   const insights = [
     {
       id: 1,
-      titulo: "Para consolidar novos candidatos na Gestão Cuidativa",
-      descricao: "apresente-se com um conteúdo focado em novos ideários, sempre baseado na tradição liberal democrática.",
+      titulo: data.insight1_titulo,
+      descricao: data.insight1_descricao,
       prioridade: "alta",
       categoria: "Posicionamento"
     },
     {
       id: 2,
-      titulo: "Para atrair mais mulheres em Cuiabá",
-      descricao: "apresente-se com propostas baseadas em políticas para empreendedorismo e equidade de impostos entre seus principais conteúdos.",
+      titulo: data.insight2_titulo,
+      descricao: data.insight2_descricao,
       prioridade: "alta",
       categoria: "Público-Alvo"
     },
     {
       id: 3,
-      titulo: "Sobre Cuidar de estar priorizado",
-      descricao: "sobre a pauta presente no Ranking do AmplifikaMT da UE TaM para que conheçam a proposta da candidatura Paulo Soethe.",
+      titulo: data.insight3_titulo,
+      descricao: data.insight3_descricao,
       prioridade: "media",
       categoria: "Comunicação"
     },
     {
       id: 4,
-      titulo: "Cuidar crui um posicionamento urgente sobre a prisão de Bolsonaro",
-      descricao: "",
+      titulo: data.insight4_titulo,
+      descricao: data.insight4_descricao,
       prioridade: "critica",
       categoria: "Crise"
     }
@@ -61,11 +78,38 @@ export function InsightsTaticos() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold text-primary mb-2">Insights Táticos</h1>
-        <p className="text-muted-foreground">
-          Aqui são insights surgirão análise em tempo real da Embauraçamento da candidatura, criação análise de forma estratégica em determinados regiões.
-        </p>
+      <div className="flex justify-between items-start">
+        <div className="flex-1">
+          <EditableField
+            label="Título"
+            value={data.titulo}
+            onChange={(value) => updateField('titulo', value)}
+            isEditing={isEditing}
+            isAdmin={isAdmin}
+            className="text-3xl font-bold text-primary mb-2"
+            placeholder="Título da seção"
+          />
+          <EditableField
+            label="Descrição"
+            value={data.descricao}
+            onChange={(value) => updateField('descricao', value)}
+            isEditing={isEditing}
+            isAdmin={isAdmin}
+            multiline
+            className="text-muted-foreground"
+            placeholder="Descrição da seção"
+          />
+        </div>
+        {isAdmin && (
+          <EditButtons
+            isEditing={isEditing}
+            isAdmin={isAdmin}
+            onEdit={() => setIsEditing(true)}
+            onSave={saveData}
+            onCancel={cancelEdit}
+            onReset={resetData}
+          />
+        )}
       </div>
 
       {/* Métricas Rápidas */}
@@ -112,10 +156,25 @@ export function InsightsTaticos() {
                       </Badge>
                       <Badge variant="outline">{insight.categoria}</Badge>
                     </div>
-                    <h3 className="font-semibold text-foreground">{insight.titulo}</h3>
-                    {insight.descricao && (
-                      <p className="text-sm text-muted-foreground">{insight.descricao}</p>
-                    )}
+                    <EditableField
+                      label={`Título do Insight ${insight.id}`}
+                      value={insight.titulo}
+                      onChange={(value) => updateField(`insight${insight.id}_titulo`, value)}
+                      isEditing={isEditing}
+                      isAdmin={isAdmin}
+                      className="font-semibold text-foreground"
+                      placeholder={`Título do insight ${insight.id}`}
+                    />
+                    <EditableField
+                      label={`Descrição do Insight ${insight.id}`}
+                      value={insight.descricao}
+                      onChange={(value) => updateField(`insight${insight.id}_descricao`, value)}
+                      isEditing={isEditing}
+                      isAdmin={isAdmin}
+                      multiline
+                      className="text-sm text-muted-foreground"
+                      placeholder={`Descrição do insight ${insight.id}`}
+                    />
                   </div>
                   <ArrowRight className="h-5 w-5 text-muted-foreground flex-shrink-0 mt-1" />
                 </div>

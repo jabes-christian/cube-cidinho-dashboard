@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 
 interface EditableFieldProps {
-  label: string;
+  label?: string;
   value: string;
   onChange: (value: string) => void;
   isEditing: boolean;
@@ -59,18 +59,31 @@ export const EditableField: React.FC<EditableFieldProps> = ({
   };
 
   if (!isAdmin || !isEditing) {
+    if (multiline) {
+      return (
+        <div className={cn("space-y-2", className)}>
+          {label && (
+            <Label className="text-sm font-medium text-muted-foreground">
+              {label}
+            </Label>
+          )}
+          <div className="whitespace-pre-wrap">
+            {value || <span className="text-muted-foreground">Não informado</span>}
+          </div>
+        </div>
+      );
+    }
+    
     return (
-      <div className={cn("space-y-2", className)}>
+      <div className={cn(className)}>
         {label && (
-          <Label className="text-sm font-medium text-muted-foreground">
+          <Label className="text-sm font-medium text-muted-foreground block mb-1">
             {label}
           </Label>
         )}
-        <div className="p-3 bg-muted rounded-md min-h-[40px] flex items-center">
-          <span className="text-sm">
-            {value || <span className="text-muted-foreground">Não informado</span>}
-          </span>
-        </div>
+        <span className={cn("inline-block", !value && "text-muted-foreground")}>
+          {value || "Não informado"}
+        </span>
       </div>
     );
   }

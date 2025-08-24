@@ -107,19 +107,17 @@ export function TermometroPopular() {
         <div className="flex-1"></div>
         <div className="flex-1 text-center">
           <EditableField
-            label=""
             value={data.titulo}
             onChange={(value) => updateField("titulo", value)}
             isEditing={isEditing}
-            isAdmin={isAdmin()}
+            isAdmin={isAdmin}
             className="text-center"
           />
           <EditableField
-            label=""
             value={data.descricao}
             onChange={(value) => updateField("descricao", value)}
             isEditing={isEditing}
-            isAdmin={isAdmin()}
+            isAdmin={isAdmin}
             multiline
             className="text-center"
           />
@@ -127,7 +125,7 @@ export function TermometroPopular() {
         <div className="flex-1 flex justify-end">
           <EditButtons
             isEditing={isEditing}
-            isAdmin={isAdmin()}
+            isAdmin={isAdmin}
             onEdit={() => setIsEditing(true)}
             onSave={saveData}
             onCancel={cancelEdit}

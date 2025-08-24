@@ -59,7 +59,7 @@ export function EstrategiaDigital() {
                 value={data.titulo}
                 onChange={(value) => updateField("titulo", value)}
                 isEditing={isEditing}
-                isAdmin={isAdmin()}
+                isAdmin={isAdmin}
                 className="mb-2"
               />
               <EditableField
@@ -67,14 +67,14 @@ export function EstrategiaDigital() {
                 value={data.descricao}
                 onChange={(value) => updateField("descricao", value)}
                 isEditing={isEditing}
-                isAdmin={isAdmin()}
+                isAdmin={isAdmin}
               />
             </>
           )}
         </div>
         <EditButtons
           isEditing={isEditing}
-          isAdmin={isAdmin()}
+          isAdmin={isAdmin}
           onEdit={() => setIsEditing(true)}
           onSave={saveData}
           onCancel={cancelEdit}
@@ -99,7 +99,7 @@ export function EstrategiaDigital() {
                   value={data.tema1}
                   onChange={(value) => updateField("tema1", value)}
                   isEditing={isEditing}
-                  isAdmin={isAdmin()}
+                  isAdmin={isAdmin}
                   className="flex-1"
                 />
                 <div className="flex items-center gap-2">
@@ -119,7 +119,7 @@ export function EstrategiaDigital() {
                   value={data.tema2}
                   onChange={(value) => updateField("tema2", value)}
                   isEditing={isEditing}
-                  isAdmin={isAdmin()}
+                  isAdmin={isAdmin}
                   className="flex-1"
                 />
                 <div className="flex items-center gap-2">
@@ -139,7 +139,7 @@ export function EstrategiaDigital() {
                   value={data.tema3}
                   onChange={(value) => updateField("tema3", value)}
                   isEditing={isEditing}
-                  isAdmin={isAdmin()}
+                  isAdmin={isAdmin}
                   className="flex-1"
                 />
                 <div className="flex items-center gap-2">
@@ -159,7 +159,7 @@ export function EstrategiaDigital() {
                   value={data.tema4}
                   onChange={(value) => updateField("tema4", value)}
                   isEditing={isEditing}
-                  isAdmin={isAdmin()}
+                  isAdmin={isAdmin}
                   className="flex-1"
                 />
                 <div className="flex items-center gap-2">
@@ -190,7 +190,7 @@ export function EstrategiaDigital() {
                   value={data.temaSensivel1}
                   onChange={(value) => updateField("temaSensivel1", value)}
                   isEditing={isEditing}
-                  isAdmin={isAdmin()}
+                  isAdmin={isAdmin}
                   className="flex-1"
                 />
                 <div className="flex items-center gap-2">
@@ -210,7 +210,7 @@ export function EstrategiaDigital() {
                   value={data.temaSensivel2}
                   onChange={(value) => updateField("temaSensivel2", value)}
                   isEditing={isEditing}
-                  isAdmin={isAdmin()}
+                  isAdmin={isAdmin}
                   className="flex-1"
                 />
                 <div className="flex items-center gap-2">
@@ -230,7 +230,7 @@ export function EstrategiaDigital() {
                   value={data.temaSensivel3}
                   onChange={(value) => updateField("temaSensivel3", value)}
                   isEditing={isEditing}
-                  isAdmin={isAdmin()}
+                  isAdmin={isAdmin}
                   className="flex-1"
                 />
                 <div className="flex items-center gap-2">
@@ -250,7 +250,7 @@ export function EstrategiaDigital() {
                   value={data.temaSensivel4}
                   onChange={(value) => updateField("temaSensivel4", value)}
                   isEditing={isEditing}
-                  isAdmin={isAdmin()}
+                  isAdmin={isAdmin}
                   className="flex-1"
                 />
                 <div className="flex items-center gap-2">
@@ -284,7 +284,7 @@ export function EstrategiaDigital() {
                     value={data.estrategia1}
                     onChange={(value) => updateField("estrategia1", value)}
                     isEditing={isEditing}
-                    isAdmin={isAdmin()}
+                    isAdmin={isAdmin}
                     className="flex-1"
                   />
                   <Badge variant="secondary" className="bg-primary text-primary-foreground">
@@ -306,7 +306,7 @@ export function EstrategiaDigital() {
                       value={data.acao1_1}
                       onChange={(value) => updateField("acao1_1", value)}
                       isEditing={isEditing}
-                      isAdmin={isAdmin()}
+                      isAdmin={isAdmin}
                       className="flex-1"
                     />
                   </li>
@@ -317,7 +317,7 @@ export function EstrategiaDigital() {
                       value={data.acao1_2}
                       onChange={(value) => updateField("acao1_2", value)}
                       isEditing={isEditing}
-                      isAdmin={isAdmin()}
+                      isAdmin={isAdmin}
                       className="flex-1"
                     />
                   </li>
@@ -328,7 +328,7 @@ export function EstrategiaDigital() {
                       value={data.acao1_3}
                       onChange={(value) => updateField("acao1_3", value)}
                       isEditing={isEditing}
-                      isAdmin={isAdmin()}
+                      isAdmin={isAdmin}
                       className="flex-1"
                     />
                   </li>
@@ -339,7 +339,7 @@ export function EstrategiaDigital() {
                       value={data.acao1_4}
                       onChange={(value) => updateField("acao1_4", value)}
                       isEditing={isEditing}
-                      isAdmin={isAdmin()}
+                      isAdmin={isAdmin}
                       className="flex-1"
                     />
                   </li>
@@ -350,7 +350,7 @@ export function EstrategiaDigital() {
                       value={data.acao1_5}
                       onChange={(value) => updateField("acao1_5", value)}
                       isEditing={isEditing}
-                      isAdmin={isAdmin()}
+                      isAdmin={isAdmin}
                       className="flex-1"
                     />
                   </li>
@@ -366,7 +366,7 @@ export function EstrategiaDigital() {
                     value={data.estrategia2}
                     onChange={(value) => updateField("estrategia2", value)}
                     isEditing={isEditing}
-                    isAdmin={isAdmin()}
+                    isAdmin={isAdmin}
                     className="flex-1"
                   />
                   <Badge variant="secondary" className="bg-primary text-primary-foreground">
@@ -388,7 +388,7 @@ export function EstrategiaDigital() {
                       value={data.acao2_1}
                       onChange={(value) => updateField("acao2_1", value)}
                       isEditing={isEditing}
-                      isAdmin={isAdmin()}
+                      isAdmin={isAdmin}
                       className="flex-1"
                     />
                   </li>
@@ -399,7 +399,7 @@ export function EstrategiaDigital() {
                       value={data.acao2_2}
                       onChange={(value) => updateField("acao2_2", value)}
                       isEditing={isEditing}
-                      isAdmin={isAdmin()}
+                      isAdmin={isAdmin}
                       className="flex-1"
                     />
                   </li>
@@ -410,7 +410,7 @@ export function EstrategiaDigital() {
                       value={data.acao2_3}
                       onChange={(value) => updateField("acao2_3", value)}
                       isEditing={isEditing}
-                      isAdmin={isAdmin()}
+                      isAdmin={isAdmin}
                       className="flex-1"
                     />
                   </li>
@@ -421,7 +421,7 @@ export function EstrategiaDigital() {
                       value={data.acao2_4}
                       onChange={(value) => updateField("acao2_4", value)}
                       isEditing={isEditing}
-                      isAdmin={isAdmin()}
+                      isAdmin={isAdmin}
                       className="flex-1"
                     />
                   </li>
@@ -432,7 +432,7 @@ export function EstrategiaDigital() {
                       value={data.acao2_5}
                       onChange={(value) => updateField("acao2_5", value)}
                       isEditing={isEditing}
-                      isAdmin={isAdmin()}
+                      isAdmin={isAdmin}
                       className="flex-1"
                     />
                   </li>
@@ -448,7 +448,7 @@ export function EstrategiaDigital() {
                     value={data.estrategia3}
                     onChange={(value) => updateField("estrategia3", value)}
                     isEditing={isEditing}
-                    isAdmin={isAdmin()}
+                    isAdmin={isAdmin}
                     className="flex-1"
                   />
                   <Badge variant="secondary" className="bg-primary text-primary-foreground">
@@ -470,7 +470,7 @@ export function EstrategiaDigital() {
                       value={data.acao3_1}
                       onChange={(value) => updateField("acao3_1", value)}
                       isEditing={isEditing}
-                      isAdmin={isAdmin()}
+                      isAdmin={isAdmin}
                       className="flex-1"
                     />
                   </li>
@@ -481,7 +481,7 @@ export function EstrategiaDigital() {
                       value={data.acao3_2}
                       onChange={(value) => updateField("acao3_2", value)}
                       isEditing={isEditing}
-                      isAdmin={isAdmin()}
+                      isAdmin={isAdmin}
                       className="flex-1"
                     />
                   </li>
@@ -492,7 +492,7 @@ export function EstrategiaDigital() {
                       value={data.acao3_3}
                       onChange={(value) => updateField("acao3_3", value)}
                       isEditing={isEditing}
-                      isAdmin={isAdmin()}
+                      isAdmin={isAdmin}
                       className="flex-1"
                     />
                   </li>
@@ -503,7 +503,7 @@ export function EstrategiaDigital() {
                       value={data.acao3_4}
                       onChange={(value) => updateField("acao3_4", value)}
                       isEditing={isEditing}
-                      isAdmin={isAdmin()}
+                      isAdmin={isAdmin}
                       className="flex-1"
                     />
                   </li>
@@ -514,7 +514,7 @@ export function EstrategiaDigital() {
                       value={data.acao3_5}
                       onChange={(value) => updateField("acao3_5", value)}
                       isEditing={isEditing}
-                      isAdmin={isAdmin()}
+                      isAdmin={isAdmin}
                       className="flex-1"
                     />
                   </li>

@@ -62,7 +62,7 @@ export function ProjecaoCenarios() {
             value={data.titulo}
             onChange={(value) => updateField("titulo", value)}
             isEditing={isEditing}
-            isAdmin={isAdmin()}
+            isAdmin={isAdmin}
             className="text-center"
           />
           <EditableField
@@ -70,7 +70,7 @@ export function ProjecaoCenarios() {
             value={data.descricao}
             onChange={(value) => updateField("descricao", value)}
             isEditing={isEditing}
-            isAdmin={isAdmin()}
+            isAdmin={isAdmin}
             multiline
             className="text-center"
           />
@@ -78,7 +78,7 @@ export function ProjecaoCenarios() {
         <div className="flex-1 flex justify-end">
           <EditButtons
             isEditing={isEditing}
-            isAdmin={isAdmin()}
+            isAdmin={isAdmin}
             onEdit={() => setIsEditing(true)}
             onSave={saveData}
             onCancel={cancelEdit}
@@ -111,7 +111,7 @@ export function ProjecaoCenarios() {
                       value={data.ponto1}
                       onChange={(value) => updateField("ponto1", value)}
                       isEditing={isEditing}
-                      isAdmin={isAdmin()}
+                      isAdmin={isAdmin}
                       className="flex-1"
                     />
                   </li>
@@ -122,7 +122,7 @@ export function ProjecaoCenarios() {
                       value={data.ponto2}
                       onChange={(value) => updateField("ponto2", value)}
                       isEditing={isEditing}
-                      isAdmin={isAdmin()}
+                      isAdmin={isAdmin}
                       className="flex-1"
                     />
                   </li>
@@ -133,7 +133,7 @@ export function ProjecaoCenarios() {
                       value={data.ponto3}
                       onChange={(value) => updateField("ponto3", value)}
                       isEditing={isEditing}
-                      isAdmin={isAdmin()}
+                      isAdmin={isAdmin}
                       className="flex-1"
                     />
                   </li>
@@ -144,7 +144,7 @@ export function ProjecaoCenarios() {
                       value={data.ponto4}
                       onChange={(value) => updateField("ponto4", value)}
                       isEditing={isEditing}
-                      isAdmin={isAdmin()}
+                      isAdmin={isAdmin}
                       className="flex-1"
                     />
                   </li>
@@ -164,7 +164,7 @@ export function ProjecaoCenarios() {
                       value={data.desafio1}
                       onChange={(value) => updateField("desafio1", value)}
                       isEditing={isEditing}
-                      isAdmin={isAdmin()}
+                      isAdmin={isAdmin}
                       className="flex-1"
                     />
                   </li>
@@ -175,7 +175,7 @@ export function ProjecaoCenarios() {
                       value={data.desafio2}
                       onChange={(value) => updateField("desafio2", value)}
                       isEditing={isEditing}
-                      isAdmin={isAdmin()}
+                      isAdmin={isAdmin}
                       className="flex-1"
                     />
                   </li>
@@ -186,7 +186,7 @@ export function ProjecaoCenarios() {
                       value={data.desafio3}
                       onChange={(value) => updateField("desafio3", value)}
                       isEditing={isEditing}
-                      isAdmin={isAdmin()}
+                      isAdmin={isAdmin}
                       className="flex-1"
                     />
                   </li>
@@ -197,7 +197,7 @@ export function ProjecaoCenarios() {
                       value={data.desafio4}
                       onChange={(value) => updateField("desafio4", value)}
                       isEditing={isEditing}
-                      isAdmin={isAdmin()}
+                      isAdmin={isAdmin}
                       className="flex-1"
                     />
                   </li>
