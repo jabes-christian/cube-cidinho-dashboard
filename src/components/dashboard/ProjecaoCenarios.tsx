@@ -21,7 +21,7 @@ export function ProjecaoCenarios() {
     desafio2: "Necessidade de maior base do Estado",
     desafio3: "Competição com políticos tradicionais",
     desafio4: "Recursos da campanha limitados"
-  });
+  }, isAdmin);
 
   const cenarios = [
     { nome: "Otimista", percentual: 50, cor: "bg-success", descricao: "Cenários atentos aos momentos para aproveitamento" },

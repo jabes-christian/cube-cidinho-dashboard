@@ -4,7 +4,7 @@ interface EditableData {
   [key: string]: any;
 }
 
-export const useEditableData = (section: string, initialData: EditableData = {}) => {
+export const useEditableData = (section: string, initialData: EditableData = {}, isAdmin: boolean) => {
   const storageKey = `cube-pulse-${section}`;
   
   const [data, setData] = useState<EditableData>(() => {
@@ -12,13 +12,18 @@ export const useEditableData = (section: string, initialData: EditableData = {})
     return saved ? { ...initialData, ...JSON.parse(saved) } : initialData;
   });
 
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditingState] = useState(false);
+  const setIsEditing = (value: boolean) => {
+    if (value && !isAdmin) return;
+    setIsEditingState(value);
+  };
 
   useEffect(() => {
     localStorage.setItem(storageKey, JSON.stringify(data));
   }, [data, storageKey]);
 
   const updateField = (field: string, value: any) => {
+    if (!isAdmin) return;
     setData(prev => ({
       ...prev,
       [field]: value
@@ -26,6 +31,7 @@ export const useEditableData = (section: string, initialData: EditableData = {})
   };
 
   const updateMultipleFields = (updates: EditableData) => {
+    if (!isAdmin) return;
     setData(prev => ({
       ...prev,
       ...updates
@@ -33,6 +39,7 @@ export const useEditableData = (section: string, initialData: EditableData = {})
   };
 
   const resetData = () => {
+    if (!isAdmin) return;
     setData(initialData);
     localStorage.removeItem(storageKey);
   };

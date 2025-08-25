@@ -19,7 +19,7 @@ export function InsightsTaticos() {
     insight3_descricao: "sobre a pauta presente no Ranking do AmplifikaMT da UE TaM para que conheçam a proposta da candidatura Paulo Soethe.",
     insight4_titulo: "Cuidar crui um posicionamento urgente sobre a prisão de Bolsonaro",
     insight4_descricao: ""
-  });
+  }, isAdmin);
   const insights = [
     {
       id: 1,

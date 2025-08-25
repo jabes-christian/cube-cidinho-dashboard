@@ -16,7 +16,7 @@ export function PautasNarrativas() {
     narrativa2: "Educação técnica como solução para o futuro",
     narrativa3: "Recomendação: Manter criação de conteúdo baseado na faceta",
     narrativa4: "Segurança e prioridade nas periferias"
-  });
+  }, isAdmin);
 
   const pautasPopulacao = [
     { tema: "Emprego", categoria: "Desenvolvimento", relevancia: 95, sentimento: 85 },

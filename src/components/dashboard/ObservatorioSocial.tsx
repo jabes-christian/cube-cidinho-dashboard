@@ -13,7 +13,7 @@ export function ObservatorioSocial() {
   const { data, isEditing, setIsEditing, updateField, saveData, cancelEdit, resetData } = useEditableData("observatorio", {
     titulo: "Observatório Social",
     descricao: "Monitoramento dos movimentos sociais, tendências e engajamento digital"
-  });
+  }, isAdmin);
 
   const dadosEngajamento = [
     { mes: "Jan", seguidores: 12000, interacoes: 8500, alcance: 45000 },
