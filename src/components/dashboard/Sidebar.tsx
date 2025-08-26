@@ -45,9 +45,7 @@ export function Sidebar({ activeSection, onSectionChange, user, onLogout, isAdmi
       {/* Header */}
       <div className="p-6 border-b border-primary-light">
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-12 bg-primary-foreground rounded-lg flex items-center justify-center">
-            <span className="text-primary font-bold text-xl">C</span>
-          </div>
+          <img src="/logo.svg" alt="Cube Logo" className="w-12 h-auto" />
           <div>
             <h1 className="text-primary-foreground font-bold text-lg">CIDINHO SANTOS</h1>
             <p className="text-primary-light text-sm">Dashboard de Performance</p>
@@ -58,18 +56,18 @@ export function Sidebar({ activeSection, onSectionChange, user, onLogout, isAdmi
           <div className="text-primary-foreground text-sm font-medium mb-1">
             CANDIDATURA GOVERNO MT 2026
           </div>
-          <div className="grid grid-cols-4 gap-2 text-xs">
-            <div className="bg-primary-foreground/10 rounded p-1 text-center">
-              <div className="text-primary-foreground font-bold">ALCANCE TOTAL</div>
+          <div className="grid grid-cols-2 gap-2 text-xs">
+            <div className="bg-primary-foreground/10 rounded p-2 text-center">
+              <div className="text-primary-foreground font-bold text-wrap">ALCANCE TOTAL</div>
             </div>
-            <div className="bg-primary-foreground/10 rounded p-1 text-center">
-              <div className="text-primary-foreground font-bold">MAIS ENGAJAMENTO</div>
+            <div className="bg-primary-foreground/10 rounded p-2 text-center">
+              <div className="text-primary-foreground font-bold text-wrap">MAIS ENGAJAMENTO</div>
             </div>
-            <div className="bg-primary-foreground/10 rounded p-1 text-center">
-              <div className="text-primary-foreground font-bold">SENTIMENTO POSITIVO</div>
+            <div className="bg-primary-foreground/10 rounded p-2 text-center">
+              <div className="text-primary-foreground font-bold text-wrap">SENTIMENTO POSITIVO</div>
             </div>
-            <div className="bg-primary-foreground/10 rounded p-1 text-center">
-              <div className="text-primary-foreground font-bold">AVALIAÇÃO DE DESEMPENHO</div>
+            <div className="bg-primary-foreground/10 rounded p-2 text-center">
+              <div className="text-primary-foreground font-bold text-wrap">AVALIAÇÃO DE DESEMPENHO</div>
             </div>
           </div>
         </div>

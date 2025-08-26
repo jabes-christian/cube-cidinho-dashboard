@@ -63,7 +63,7 @@ export function ProjecaoCenarios() {
             onChange={(value) => updateField("titulo", value)}
             isEditing={isEditing}
             isAdmin={isAdmin}
-            className="text-center"
+            className="text-2xl font-bold text-primary mb-2 text-center"
           />
           <EditableField
             label=""
@@ -91,7 +91,7 @@ export function ProjecaoCenarios() {
         {/* Informações do Candidato */}
         <Card className="lg:col-span-2">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2 text-lg font-semibold text-primary mb-2">
               <Users className="h-5 w-5" />
               CIDINHO SANTOS
             </CardTitle>
@@ -210,7 +210,7 @@ export function ProjecaoCenarios() {
         {/* Probabilidade de Eleição */}
         <Card>
           <CardHeader>
-            <CardTitle className="text-center">PROBABILIDADE DE ELEIÇÃO</CardTitle>
+            <CardTitle className="text-center text-lg font-semibold text-primary mb-2">PROBABILIDADE DE ELEIÇÃO</CardTitle>
           </CardHeader>
           <CardContent className="text-center">
             <div className="text-6xl font-bold text-primary mb-2">42%</div>

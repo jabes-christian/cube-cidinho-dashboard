@@ -81,7 +81,7 @@ export function PautasNarrativas() {
             onChange={(value) => updateField("titulo", value)}
             isEditing={isEditing}
             isAdmin={isAdmin}
-            className="text-center"
+            className="text-2xl font-bold text-primary mb-2 text-center"
           />
           <EditableField
             label=""
@@ -108,7 +108,7 @@ export function PautasNarrativas() {
       {/* Principais Pautas da População MT */}
       <Card>
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+          <CardTitle className="flex items-center gap-2 text-lg font-semibold text-primary mb-2">
             <FileText className="h-5 w-5" />
             Principais Pautas da População MT
           </CardTitle>
@@ -157,7 +157,7 @@ export function PautasNarrativas() {
       {/* Análise de Narrativas Dominantes */}
       <Card>
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+          <CardTitle className="flex items-center gap-2 text-lg font-semibold text-primary mb-2">
             <TrendingUp className="h-5 w-5" />
             Análise de Narrativas Dominantes
           </CardTitle>
@@ -167,7 +167,7 @@ export function PautasNarrativas() {
             <div key={index} className="border border-border rounded-lg p-4">
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1 space-y-2">
-                  <h3 className="font-semibold">{narrativa.titulo}</h3>
+                  <h3 className="text-lg font-semibold text-primary">{narrativa.titulo}</h3>
                   <p className="text-sm text-muted-foreground">{narrativa.subtitulo}</p>
                   <div className="flex flex-wrap gap-2">
                     {narrativa.descricao.split(', ').map((tag, tagIndex) => (
@@ -198,7 +198,7 @@ export function PautasNarrativas() {
       {/* Sentimento por Região */}
       <Card>
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+          <CardTitle className="flex items-center gap-2 text-lg font-semibold text-primary mb-2">
             <MapPin className="h-5 w-5" />
             Sentimento por Região
           </CardTitle>

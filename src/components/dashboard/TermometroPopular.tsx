@@ -111,7 +111,7 @@ export function TermometroPopular() {
             onChange={(value) => updateField("titulo", value)}
             isEditing={isEditing}
             isAdmin={isAdmin}
-            className="text-center"
+            className="text-2xl font-bold text-primary mb-2 text-center"
           />
           <EditableField
             value={data.descricao}
@@ -138,7 +138,7 @@ export function TermometroPopular() {
         {/* Score Popular */}
         <Card className="lg:col-span-1">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2 text-lg font-semibold text-primary mb-2">
               <Thermometer className="h-5 w-5" />
               Score Popular
             </CardTitle>
@@ -173,7 +173,7 @@ export function TermometroPopular() {
         {/* Distribuição de Menções */}
         <Card className="lg:col-span-2">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2 text-lg font-semibold text-primary mb-2">
               <TrendingUp className="h-5 w-5" />
               Distribuição de Menções
             </CardTitle>
@@ -235,7 +235,7 @@ export function TermometroPopular() {
       {/* Comentários Mais Relevantes */}
       <Card>
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+          <CardTitle className="flex items-center gap-2 text-lg font-semibold text-primary mb-2">
             <MessageSquare className="h-5 w-5" />
             Comentários Mais Relevantes
           </CardTitle>

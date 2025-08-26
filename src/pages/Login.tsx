@@ -41,12 +41,12 @@ const Login = () => {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-          <div className="mx-auto mb-4 w-16 h-16 bg-primary rounded-full flex items-center justify-center">
-            <LogIn className="w-8 h-8 text-primary-foreground" />
+          <div className="mx-auto mb-4 w-32 h-auto flex items-center justify-center">
+            <img src="/logo-cube.png" alt="Cube Logo" className="max-w-full h-auto" />
           </div>
-          <CardTitle className="text-2xl font-bold">Cube Pulse</CardTitle>
+          <CardTitle className="text-2xl font-bold">Dashboard</CardTitle>
           <CardDescription>
-            Faça login para acessar o dashboard
+            Faça login para acessar
           </CardDescription>
         </CardHeader>
         <CardContent>
