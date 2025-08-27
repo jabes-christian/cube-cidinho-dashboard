@@ -7,50 +7,51 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useEditableData } from "@/hooks/useEditableData";
 import { EditButtons } from "@/components/ui/EditButtons";
 import { EditableField } from "@/components/ui/EditableField";
+import { EditableList } from "@/components/ui/EditableList";
+import { EditableChart } from "@/components/ui/EditableChart";
+import { EditableTable } from "@/components/ui/EditableTable";
 
 export function ProjecaoCenarios() {
   const { isAdmin } = useAuth();
   const { data, isEditing, setIsEditing, updateField, saveData, cancelEdit, resetData } = useEditableData("projecao", {
-    titulo: "Projeção de Cenários",
-    descricao: "Análise detalhada da viabilidade e cenários competitivos para a eleição de Governo",
-    ponto1: "Forte presença digital e engajamento jovem",
-    ponto2: "Propostas inovadoras para educação e tecnologia",
-    ponto3: "Histórico de transparência e liderança",
-    ponto4: "Apoio consolidado no interior do estado",
-    desafio1: "Primeira candidatura ao Governo",
-    desafio2: "Necessidade de maior base do Estado",
-    desafio3: "Competição com políticos tradicionais",
-    desafio4: "Recursos da campanha limitados"
-  }, isAdmin);
-
-  const cenarios = [
-    { nome: "Otimista", percentual: 50, cor: "bg-success", descricao: "Cenários atentos aos momentos para aproveitamento" },
-    { nome: "Realista", percentual: 43, cor: "bg-warning", descricao: "Manutenção do crescimento atual" },
-    { nome: "Pessimista", percentual: 35, cor: "bg-destructive", descricao: "Amplo crescimento dos rivais" }
-  ];
-
-  const competitividade = [
-    { regiao: "Cuiabá e Região Metropolitana", cuiaba: 45, norte: 25, centro: 20, oeste: 19, max: 19 },
-    { regiao: "Norte do Estado", cuiaba: 40, norte: 25, centro: 20, oeste: 19, max: 19 },
-    { regiao: "Sul do Estado", cuiaba: 45, norte: 20, centro: 23, oeste: 19, max: 19 },
-    { regiao: "Leste do Estado", cuiaba: 40, norte: 20, centro: 20, oeste: 23, max: 19 },
-    { regiao: "Oeste do Estado", cuiaba: 45, norte: 20, centro: 20, oeste: 23, max: 19 }
-  ];
-
-  const evolucaoIntencoes = [
-    { mes: "Jan", cidinho: 28, otavio: 32, wellington: 25, max: 15 },
-    { mes: "Fev", cidinho: 31, otavio: 30, wellington: 24, max: 15 },
-    { mes: "Mar", cidinho: 35, otavio: 29, wellington: 23, max: 13 },
-    { mes: "Abr", cidinho: 38, otavio: 28, wellington: 22, max: 12 },
-    { mes: "Mai", cidinho: 42, otavio: 27, wellington: 21, max: 10 },
-    { mes: "Jun", cidinho: 45, otavio: 26, wellington: 20, max: 9 }
-  ];
-
-  const concorrentes = [
-    { nome: "OTÁVIO PIVETTA", votos: "325.000" },
-    { nome: "WELLINGTON FAGUNDES", votos: "280.000" },
-    { nome: "MAX RUSSI", votos: "195.000" }
-  ];
+      titulo: "Projeção de Cenários",
+      descricao: "Análise detalhada da viabilidade e cenários competitivos para a eleição de Governo",
+      ponto1: "Forte presença digital e engajamento jovem",
+      ponto2: "Propostas inovadoras para educação e tecnologia",
+      ponto3: "Histórico de transparência e liderança",
+      ponto4: "Apoio consolidado no interior do estado",
+      desafio1: "Primeira candidatura ao Governo",
+      desafio2: "Necessidade de maior base do Estado",
+      desafio3: "Competição com políticos tradicionais",
+      desafio4: "Recursos da campanha limitados",
+      probabilidade: "42",
+      votosProjetados: "650.000",
+      cenarios: [
+        { nome: "Otimista", percentual: 50, cor: "bg-success", descricao: "Cenários atentos aos momentos para aproveitamento" },
+        { nome: "Realista", percentual: 43, cor: "bg-warning", descricao: "Manutenção do crescimento atual" },
+        { nome: "Pessimista", percentual: 35, cor: "bg-destructive", descricao: "Amplo crescimento dos rivais" }
+      ],
+      concorrentes: [
+        { nome: "OTÁVIO PIVETTA", votos: "325.000" },
+        { nome: "WELLINGTON FAGUNDES", votos: "280.000" },
+        { nome: "MAX RUSSI", votos: "195.000" }
+      ],
+      competitividade: [
+        { regiao: "Cuiabá e Região Metropolitana", cuiaba: 45, norte: 25, centro: 20, oeste: 19, max: 19 },
+        { regiao: "Norte do Estado", cuiaba: 40, norte: 25, centro: 20, oeste: 19, max: 19 },
+        { regiao: "Sul do Estado", cuiaba: 45, norte: 20, centro: 23, oeste: 19, max: 19 },
+        { regiao: "Leste do Estado", cuiaba: 40, norte: 20, centro: 20, oeste: 23, max: 19 },
+        { regiao: "Oeste do Estado", cuiaba: 45, norte: 20, centro: 20, oeste: 23, max: 19 }
+      ],
+      evolucaoIntencoes: [
+        { mes: "Jan", cidinho: 28, otavio: 32, wellington: 25, max: 15 },
+        { mes: "Fev", cidinho: 31, otavio: 30, wellington: 24, max: 15 },
+        { mes: "Mar", cidinho: 35, otavio: 29, wellington: 23, max: 13 },
+        { mes: "Abr", cidinho: 38, otavio: 28, wellington: 22, max: 12 },
+        { mes: "Mai", cidinho: 42, otavio: 27, wellington: 21, max: 10 },
+        { mes: "Jun", cidinho: 45, otavio: 26, wellington: 20, max: 9 }
+      ]
+    }, isAdmin);
 
   return (
     <div className="space-y-6">
@@ -213,7 +214,13 @@ export function ProjecaoCenarios() {
             <CardTitle className="text-center text-lg font-semibold text-primary mb-2">PROBABILIDADE DE ELEIÇÃO</CardTitle>
           </CardHeader>
           <CardContent className="text-center">
-            <div className="text-6xl font-bold text-primary mb-2">42%</div>
+            <EditableField
+              value={data.probabilidade}
+              onChange={(value) => updateField("probabilidade", value)}
+              isEditing={isEditing}
+              isAdmin={isAdmin}
+              className="text-6xl font-bold text-primary mb-2"
+            />
             <p className="text-sm text-muted-foreground">Baseado em tendências atuais</p>
           </CardContent>
         </Card>
@@ -226,12 +233,18 @@ export function ProjecaoCenarios() {
         </CardHeader>
         <CardContent>
           <div className="text-center mb-6">
-            <div className="text-4xl font-bold text-primary">650.000</div>
+            <EditableField
+              value={data.votosProjetados}
+              onChange={(value) => updateField("votosProjetados", value)}
+              isEditing={isEditing}
+              isAdmin={isAdmin}
+              className="text-4xl font-bold text-primary"
+            />
             <p className="text-muted-foreground">votos estimados</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-            {concorrentes.map((concorrente, index) => (
+            {data.concorrentes.map((concorrente, index) => (
               <Card key={index} className="bg-muted">
                 <CardContent className="p-4 text-center">
                   <h3 className="font-semibold text-sm mb-2">{concorrente.nome}</h3>
@@ -253,7 +266,7 @@ export function ProjecaoCenarios() {
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {cenarios.map((cenario, index) => (
+            {data.cenarios.map((cenario, index) => (
               <div key={index} className="text-center space-y-3">
                 <h3 className="font-semibold">{cenario.nome.toUpperCase()}</h3>
                 <div className="text-3xl font-bold">{cenario.percentual}%</div>
@@ -286,7 +299,7 @@ export function ProjecaoCenarios() {
                 </tr>
               </thead>
               <tbody>
-                {competitividade.map((item, index) => (
+                {data.competitividade.map((item, index) => (
                   <tr key={index} className="border-b">
                     <td className="p-2 font-medium">{item.regiao}</td>
                     <td className="text-center p-2">{item.cuiaba}%</td>
@@ -309,7 +322,7 @@ export function ProjecaoCenarios() {
         <CardContent>
           <div className="h-80">
             <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={evolucaoIntencoes}>
+              <LineChart data={data.evolucaoIntencoes}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="mes" />
                 <YAxis />
