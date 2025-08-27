@@ -1,73 +1,51 @@
-# Welcome to your Lovable project
+# Cube Pulse Single
 
-## Project info
+## Descrição do Projeto
 
-**URL**: https://lovable.dev/projects/0c8e5562-f74f-4d13-a554-bd0b0ac205b7
+Dashboard CUBE é um aplicativo frontend para dashboard de análise de dados populacionais e narrativas, focado em pautas políticas e sociais do Canditado Cidinho Santos no estado de Mato Grosso (MT). O projeto inclui componentes como PautasNarrativas, BaseEleitoral e outros, utilizando uma interface responsiva com edição de campos e visualizações de progresso. Ele foi desenvolvido para fornecer insights sobre pautas principais, narrativas dominantes e perfis socioeconômicos, com suporte a edição administrativa.
 
-## How can I edit this code?
+## Como Executar
 
-There are several ways of editing your application.
+Para rodar o projeto localmente, siga estes passos:
 
-**Use Lovable**
+1. Clone o repositório:
+   ```bash
+   git clone <URL_DO_REPOSITORIO>
+   ```
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/0c8e5562-f74f-4d13-a554-bd0b0ac205b7) and start prompting.
+2. Navegue até o diretório do projeto:
+   ```bash
+   cd cube-pulse-single
+   ```
 
-Changes made via Lovable will be committed automatically to this repo.
+3. Instale as dependências:
+   ```bash
+   npm install
+   ```
 
-**Use your preferred IDE**
+4. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+   O aplicativo estará disponível em `http://localhost:8080/`.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Tecnologias Usadas
 
-Follow these steps:
+- **Vite**: Para build e desenvolvimento rápido.
+- **React**: Biblioteca principal para construção da UI.
+- **TypeScript**: Para tipagem estática e maior segurança no código.
+- **shadcn-ui**: Componentes UI reutilizáveis e acessíveis.
+- **Tailwind CSS**: Framework de estilização utility-first para design responsivo.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## Futuras Aplicações
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Planejamos expandir o projeto com integração a um backend para dados reais (ex.: API REST ou GraphQL), adição de autenticação avançada, gráficos interativos com bibliotecas como Chart.js ou Recharts, suporte a temas dark/light, e otimizações de performance para grandes volumes de dados. Além disso, visamos implementar testes unitários com Jest e deploy automatizado para plataformas como Vercel ou Netlify.
 
-# Step 3: Install the necessary dependencies.
-npm i
+## Status Atual
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+O projeto está em fase de desenvolvimento, com componentes principais implementados e refinamentos recentes em responsividade (ex.: grids ajustadas com Tailwind breakpoints em PautasNarrativas.tsx). Funcionalidades como edição de campos e visualizações de progresso estão operacionais. Testes locais via `npm run dev` confirmam estabilidade, mas ainda sem integração backend ou deploy em produção.
 
-**Edit a file directly in GitHub**
+## Autor
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/0c8e5562-f74f-4d13-a554-bd0b0ac205b7) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+- Jabes Chistian - [LinkedIn](https://www.linkedin.com/in/jabes-chistian)
