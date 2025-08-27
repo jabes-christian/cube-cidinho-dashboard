@@ -71,7 +71,7 @@ export function TermometroPopular() {
         sentimento: "positivo"
       }
     ]
-  });
+  }, isAdmin);
 
   const getSentimentoColor = (sentimento: string) => {
     switch (sentimento) {
@@ -94,6 +94,8 @@ export function TermometroPopular() {
   const getNivelAtual = () => {
     return data.nivelTermometro.find(n => data.scorePopular >= n.min) || data.nivelTermometro[data.nivelTermometro.length - 1];
   };
+
+  
 
   return (
     <div className="space-y-6">
@@ -227,11 +229,11 @@ export function TermometroPopular() {
                 <div className="flex items-center gap-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-1">
                     <Heart className="h-4 w-4" />
-                    {item.interacoes.curtidas}
+                    {item.interacoes?.curtidas ?? 0}
                   </div>
                   <div className="flex items-center gap-1">
                     <Share2 className="h-4 w-4" />
-                    {item.interacoes.compartilhamentos}
+                    {item.interacoes?.compartilhamentos ?? 0}
                   </div>
                 </div>
               </div>
@@ -270,11 +272,11 @@ export function TermometroPopular() {
                 <div className="flex items-center gap-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-1">
                     <Heart className="h-4 w-4" />
-                    {item.interacoes.curtidas}
+                    {item.interacoes?.curtidas ?? 0}
                   </div>
                   <div className="flex items-center gap-1">
                     <Share2 className="h-4 w-4" />
-                    {item.interacoes.compartilhamentos}
+                    {item.interacoes?.compartilhamentos ?? 0}
                   </div>
                 </div>
               </div>

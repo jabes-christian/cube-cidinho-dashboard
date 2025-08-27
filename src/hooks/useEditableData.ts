@@ -14,7 +14,9 @@ export const useEditableData = (section: string, initialData: EditableData = {},
 
   const [isEditing, setIsEditingState] = useState(false);
   const setIsEditing = (value: boolean) => {
-    if (value && !isAdmin) return;
+    if (value && !isAdmin) {
+      return;
+    }
     setIsEditingState(value);
   };
 

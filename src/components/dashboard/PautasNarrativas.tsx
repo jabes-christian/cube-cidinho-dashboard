@@ -110,14 +110,14 @@ export function PautasNarrativas() {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 auto-rows-fr justify-items-center w-full mx-auto">
             <EditableList
               items={data.pautasPopulacao}
               onUpdate={(updatedItems) => updateField('pautasPopulacao', updatedItems)}
               isEditing={isEditing}
               isAdmin={isAdmin}
               renderItem={(item, index) => (
-                <Card key={index} className="bg-primary text-primary-foreground">
+                <Card key={index} className="bg-primary text-primary-foreground p-4">
                   <CardContent className="p-4">
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
