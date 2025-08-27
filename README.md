@@ -1,4 +1,4 @@
-# Cube Pulse Single
+# Cube Dashboard - Cidinho Santos
 
 ## Descrição do Projeto
 
