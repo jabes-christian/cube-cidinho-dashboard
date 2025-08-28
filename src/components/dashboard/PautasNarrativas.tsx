@@ -93,10 +93,18 @@ export function PautasNarrativas() {
           <EditButtons
             isEditing={isEditing}
             isAdmin={isAdmin}
-            onEdit={() => setIsEditing(true)}
-            onSave={saveData}
-            onCancel={cancelEdit}
-            onReset={resetData}
+            onEdit={() => {
+              setIsEditing(true);
+            }}
+            onSave={() => {
+              saveData();
+            }}
+            onCancel={() => {
+              cancelEdit();
+            }}
+            onReset={() => {
+              resetData();
+            }}
           />
         </div>
       </div>

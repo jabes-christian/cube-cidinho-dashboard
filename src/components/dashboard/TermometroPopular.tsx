@@ -11,7 +11,7 @@ import { EditableTable } from "@/components/ui/EditableTable";
 
 export function TermometroPopular() {
   const { isAdmin } = useAuth();
-  const { data, isEditing, setIsEditing, updateField, saveData, cancelEdit, resetData } = useEditableData("termometro", {
+  const initialData = {
     titulo: "Termômetro Popular",
     descricao: "Análise em tempo real da percepção popular nas redes sociais no MT",
     scorePopular: 85,
@@ -71,7 +71,8 @@ export function TermometroPopular() {
         sentimento: "positivo"
       }
     ]
-  }, isAdmin);
+  };
+  const { data, isEditing, setIsEditing, updateField, saveData, cancelEdit, resetData } = useEditableData("termometro", initialData, isAdmin);
 
   const getSentimentoColor = (sentimento: string) => {
     switch (sentimento) {
@@ -96,7 +97,7 @@ export function TermometroPopular() {
   };
 
   
-
+  
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between mb-6">
@@ -122,10 +123,18 @@ export function TermometroPopular() {
           <EditButtons
             isEditing={isEditing}
             isAdmin={isAdmin}
-            onEdit={() => setIsEditing(true)}
-            onSave={saveData}
-            onCancel={cancelEdit}
-            onReset={resetData}
+            onEdit={() => {
+              setIsEditing(true);
+            }}
+            onSave={() => {
+              saveData();
+            }}
+            onCancel={() => {
+              cancelEdit();
+            }}
+            onReset={() => {
+              resetData();
+            }}
           />
         </div>
       </div>
@@ -213,27 +222,70 @@ export function TermometroPopular() {
             onUpdate={(newItems) => updateField("mencoesRelevantes", newItems)}
             isEditing={isEditing}
             isAdmin={isAdmin}
-            renderItem={(item) => (
+            renderItem={(item, index) => (
               <div className="border border-border rounded-lg p-4 space-y-3">
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="font-medium text-sm">{item.usuario}</span>
+                      <EditableField
+                        value={item.usuario}
+                        onChange={(value) => {
+                          const updated = [...data.mencoesRelevantes];
+                          updated[index].usuario = value;
+                          updateField("mencoesRelevantes", updated);
+                        }}
+                        isEditing={isEditing}
+                        className="font-medium text-sm"
+                      />
                       <Badge className={getSentimentoBadge(item.sentimento)}>
-                        {item.sentimento}
+                        <EditableField
+                          value={item.sentimento}
+                          onChange={(value) => {
+                            const updated = [...data.mencoesRelevantes];
+                            updated[index].sentimento = value;
+                            updateField("mencoesRelevantes", updated);
+                          }}
+                          isEditing={isEditing}
+                        />
                       </Badge>
                     </div>
-                    <p className="text-sm">{item.conteudo}</p>
+                    <EditableField
+                      value={item.conteudo}
+                      onChange={(value) => {
+                        const updated = [...data.mencoesRelevantes];
+                        updated[index].conteudo = value;
+                        updateField("mencoesRelevantes", updated);
+                      }}
+                      isEditing={isEditing}
+                      multiline
+                      className="text-sm"
+                    />
                   </div>
                 </div>
                 <div className="flex items-center gap-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-1">
                     <Heart className="h-4 w-4" />
-                    {item.interacoes?.curtidas ?? 0}
+                    <EditableField
+                      value={(item.interacoes?.curtidas ?? 0).toString()}
+                      onChange={(value) => {
+                        const updated = [...data.mencoesRelevantes];
+                        updated[index].interacoes = { ...updated[index].interacoes, curtidas: parseInt(value) };
+                        updateField("mencoesRelevantes", updated);
+                      }}
+                      isEditing={isEditing}
+                    />
                   </div>
                   <div className="flex items-center gap-1">
                     <Share2 className="h-4 w-4" />
-                    {item.interacoes?.compartilhamentos ?? 0}
+                    <EditableField
+                      value={(item.interacoes?.compartilhamentos ?? 0).toString()}
+                      onChange={(value) => {
+                        const updated = [...data.mencoesRelevantes];
+                        updated[index].interacoes = { ...updated[index].interacoes, compartilhamentos: parseInt(value) };
+                        updateField("mencoesRelevantes", updated);
+                      }}
+                      isEditing={isEditing}
+                    />
                   </div>
                 </div>
               </div>
@@ -256,27 +308,70 @@ export function TermometroPopular() {
             onUpdate={(newItems) => updateField("comentariosRelevantes", newItems)}
             isEditing={isEditing}
             isAdmin={isAdmin}
-            renderItem={(item) => (
+            renderItem={(item, index) => (
               <div className="border border-border rounded-lg p-4 space-y-3">
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="font-medium text-sm">{item.usuario}</span>
+                      <EditableField
+                        value={item.usuario}
+                        onChange={(value) => {
+                          const updated = [...data.comentariosRelevantes];
+                          updated[index].usuario = value;
+                          updateField("comentariosRelevantes", updated);
+                        }}
+                        isEditing={isEditing}
+                        className="font-medium text-sm"
+                      />
                       <Badge className={getSentimentoBadge(item.sentimento)}>
-                        {item.sentimento}
+                        <EditableField
+                          value={item.sentimento}
+                          onChange={(value) => {
+                            const updated = [...data.comentariosRelevantes];
+                            updated[index].sentimento = value;
+                            updateField("comentariosRelevantes", updated);
+                          }}
+                          isEditing={isEditing}
+                        />
                       </Badge>
                     </div>
-                    <p className="text-sm">{item.conteudo}</p>
+                    <EditableField
+                      value={item.conteudo}
+                      onChange={(value) => {
+                        const updated = [...data.comentariosRelevantes];
+                        updated[index].conteudo = value;
+                        updateField("comentariosRelevantes", updated);
+                      }}
+                      isEditing={isEditing}
+                      multiline
+                      className="text-sm"
+                    />
                   </div>
                 </div>
                 <div className="flex items-center gap-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-1">
                     <Heart className="h-4 w-4" />
-                    {item.interacoes?.curtidas ?? 0}
+                    <EditableField
+                      value={(item.interacoes?.curtidas ?? 0).toString()}
+                      onChange={(value) => {
+                        const updated = [...data.comentariosRelevantes];
+                        updated[index].interacoes = { ...updated[index].interacoes, curtidas: parseInt(value) };
+                        updateField("comentariosRelevantes", updated);
+                      }}
+                      isEditing={isEditing}
+                    />
                   </div>
                   <div className="flex items-center gap-1">
                     <Share2 className="h-4 w-4" />
-                    {item.interacoes?.compartilhamentos ?? 0}
+                    <EditableField
+                      value={(item.interacoes?.compartilhamentos ?? 0).toString()}
+                      onChange={(value) => {
+                        const updated = [...data.comentariosRelevantes];
+                        updated[index].interacoes = { ...updated[index].interacoes, compartilhamentos: parseInt(value) };
+                        updateField("comentariosRelevantes", updated);
+                      }}
+                      isEditing={isEditing}
+                    />
                   </div>
                 </div>
               </div>

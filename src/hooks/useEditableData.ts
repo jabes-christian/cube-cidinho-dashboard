@@ -22,26 +22,30 @@ export const useEditableData = (section: string, initialData: EditableData = {},
 
   useEffect(() => {
     localStorage.setItem(storageKey, JSON.stringify(data));
+    
   }, [data, storageKey]);
 
   const updateField = (field: string, value: any) => {
     if (!isAdmin) return;
-    setData(prev => ({
-      ...prev,
-      [field]: value
-    }));
+    setData(prev => {
+      const newData = { ...prev, [field]: value };
+      return newData;
+    });
   };
 
   const updateMultipleFields = (updates: EditableData) => {
     if (!isAdmin) return;
-    setData(prev => ({
-      ...prev,
-      ...updates
-    }));
+    
+    setData(prev => {
+      const newData = { ...prev, ...updates };
+      
+      return newData;
+    });
   };
 
   const resetData = () => {
     if (!isAdmin) return;
+    
     setData(initialData);
     localStorage.removeItem(storageKey);
   };
