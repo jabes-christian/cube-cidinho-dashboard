@@ -30,6 +30,19 @@ Para rodar o projeto localmente, siga estes passos:
 
    O aplicativo estará disponível em `http://localhost:8080/`.
 
+## Execução via Docker
+
+Como alternativa, você pode executar a aplicação usando Docker. Certifique-se de ter Docker e Docker Compose instalados.
+
+1. Construa e inicie o container:
+   ```bash
+   docker-compose up --build
+   ```
+
+2. A aplicação estará disponível em `http://localhost:8080/`.
+
+Para parar, use `docker-compose down`.
+
 ## Tecnologias Usadas
 
 - **Vite**: Para build e desenvolvimento rápido.
