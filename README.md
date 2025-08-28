@@ -65,6 +65,6 @@ Responsável pelo Front-End:
 
 - Jabes Chistian - [LinkedIn](https://www.linkedin.com/in/jabes-chistian)
 
-Responsável pelo Back-end(Ação Futura e em Desenvolvimento):
+Responsável pelo Back-end (Ação Futura e em Desenvolvimento):
 
-Yhago Felipe - [LinkedIn](https://www.linkedin.com/in/yhagofelipe/)
+- Yhago Felipe - [LinkedIn](https://www.linkedin.com/in/yhagofelipe/)
