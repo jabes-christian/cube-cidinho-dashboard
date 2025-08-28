@@ -53,12 +53,18 @@ Para parar, use `docker-compose down`.
 
 ## Futuras Aplicações
 
-Planejamos expandir o projeto com integração a um backend para dados reais (ex.: API REST ou GraphQL), adição de autenticação avançada, gráficos interativos com bibliotecas como Chart.js ou Recharts, suporte a temas dark/light, e otimizações de performance para grandes volumes de dados. Além disso, visamos implementar testes unitários com Jest e deploy automatizado para plataformas como Vercel ou Netlify.
+Planejamos expandir o projeto com integração a um backend para dados reais (ex.: API REST ou GraphQL), adição de autenticação JWT avançada, suporte a temas dark/light, e otimizações de performance para grandes volumes de dados. Além disso, deploy automatizado para plataformas como Vercel ou Netlify.
 
 ## Status Atual
 
 O projeto está em fase de desenvolvimento, com componentes principais implementados e refinamentos recentes em responsividade (ex.: grids ajustadas com Tailwind breakpoints em PautasNarrativas.tsx). Funcionalidades como edição de campos e visualizações de progresso estão operacionais. Testes locais via `npm run dev` confirmam estabilidade, mas ainda sem integração backend ou deploy em produção.
 
-## Autor
+## Autores
+
+Responsável pelo Front-End:
 
 - Jabes Chistian - [LinkedIn](https://www.linkedin.com/in/jabes-chistian)
+
+Responsável pelo Back-end(Ação Futura e em Desenvolvimento):
+
+Yhago Felipe - [LinkedIn](https://www.linkedin.com/in/yhagofelipe/)
